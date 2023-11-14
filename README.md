@@ -11,3 +11,5 @@ Now, frontend is hosted in
 and backend is hosted in 
 
 ```locahost/api```
+
+Don't forget to add your DATABASE URI in the .env file in ./server/ directory
