@@ -34,13 +34,13 @@ def shorten_url():
     if original_url:
         url = Url.query.filter_by(original_url=original_url).first()
         if url:
-            return jsonify(shortened_url='http://localhost/api/' + url.short_url), 200
+            return jsonify(shortened_url='http://localhost/api/get_url?shortcode=' + url.short_url), 200
         else:
             short_url = generate_short_url()
             new_url = Url(original_url=original_url, short_url=short_url)
             db.session.add(new_url)
             db.session.commit()
-            return jsonify(shortened_url='http://localhost/api/' + short_url), 201
+            return jsonify(shortened_url='http://localhost/api/get_url?shortcode=' + short_url), 201
     else:
         return jsonify(error='Missing url parameter'), 400
 
